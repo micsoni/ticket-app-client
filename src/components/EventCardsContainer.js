@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import EventCard from "./EventCard";
+import EventCardsList from "./EventCardsList";
 import { connect } from "react-redux";
 import { getEvents } from "../store/actions/events";
-import "./styling/EventsContainer.css"
+import "./styling/EventCardsContainer.css";
 
-class EventsContainer extends Component {
+class EventCardsContainer extends Component {
   componentDidMount() {
     this.props.getEvents();
   }
@@ -12,14 +12,14 @@ class EventsContainer extends Component {
     if (!this.props.events.length) {
       return <p>Loading...</p>;
     }
-    const displayEvents = this.props.events.map(event => {
-      return <EventCard key={event.id} event={event} />;
-    });
-    return <div className="row">{displayEvents}</div>;
+    return <EventCardsList events={this.props.events} />;
   }
 }
 function mapStateToProps(state) {
   return { events: state.events.all };
 }
 const mapDispatchToProps = { getEvents };
-export default connect(mapStateToProps, mapDispatchToProps)(EventsContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(EventCardsContainer);

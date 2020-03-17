@@ -1,22 +1,32 @@
-import React, { Component } from 'react'
-import {connect} from "react-redux"
-import {getCurrentEvent} from "../store/actions/events"
+import React, { Component } from "react";
 
-class EventDetails extends Component {
-  
-  componentDidMount() {
-    this.props.getCurrentEvent(this.props.match.params.id);
-  }
+export default class EventDetails extends Component {
   render() {
-    if (!this.props.event) {
-      return <p>Loading...</p>;
-    }
-    return <div className="row">hello</div>;
+    return (
+      <div className="card text-center">
+        <div className="card-header">
+          Start Date{" "}{this.props.event.startDate} | End Date{" "}
+          {this.props.event.endDate}
+        </div>
+        <div className="row no-gutters">
+          <div className="col-md-4">
+            <img
+              src={this.props.event.pictureUrl}
+              className="card-img"
+              alt=""
+            />
+          </div>
+          <div className="col-md-8">
+            <div className="card-body">
+              <h4 className="card-title">{this.props.event.name}</h4>
+              <p className="card-text">{this.props.event.description}</p>
+            </div>
+          </div>
+        </div>
+        <div className="card-footer text-muted">
+          See available tickets below
+        </div>
+      </div>
+    );
   }
 }
-
-function mapStateToProps(state) {
-  return { event: state.events.current };
-}
-const mapDispatchToProps = { getCurrentEvent };
-export default connect(mapStateToProps, mapDispatchToProps)(EventDetails);

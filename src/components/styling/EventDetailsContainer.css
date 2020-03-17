@@ -1,0 +1,19 @@
+body {
+  margin: 40px;
+  font-family: "Spartan";
+}
+
+.btn {
+  margin: 5px;
+}
+
+.single-event {
+  font-family: "Dosis", sans-serif;
+  margin: 15px;
+}
+
+p {
+  text-align: center;
+  padding: 10px;
+  font-size: 18px;
+}

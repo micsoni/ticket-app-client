@@ -5,8 +5,8 @@ import store from "./store/index";
 import LoginFormContainer from "./components/LoginFormContainer";
 import SignupFormContainer from "./components/SignupFormContainer"
 import Navbar from "./components/Navbar"
-import EventsContainer from "./components/EventsContainer"
-import EventDetails from "./components/EventDetails"
+import EventCardsContainer from "./components/EventCardsContainer"
+import EventDetailsContainer from "./components/EventDetailsContainer"
 
 function App() {
   return (
@@ -15,8 +15,8 @@ function App() {
       <Switch>
       <Route exact path="/login" component={LoginFormContainer} />
     <Route exact path="/signup" component={SignupFormContainer} />
-    <Route exact path="/events" component={EventsContainer} />
-    <Route exact path="/events/:id" component={EventDetails} />
+    <Route exact path="/events" component={EventCardsContainer} />
+    <Route exact path="/events/:id" component={EventDetailsContainer} />
 
       </Switch>
     
