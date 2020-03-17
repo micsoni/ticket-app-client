@@ -3,10 +3,10 @@ import request from "superagent";
 const baseUrl = "http://localhost:4000";
 
 
-function allEvents(eventData) {
+function allEvents(eventsData) {
   return {
     type: "ALL_EVENTS",
-    payload: eventData
+    payload: eventsData
   };
 }
 export function getEvents() {
@@ -45,3 +45,31 @@ export function getCurrentEvent(id) {
   };
 
 
+  function sampleEvents(eventsData) {
+    return {
+      type: "SAMPLE_EVENTS",
+      payload: eventsData
+    };
+  }
+  export function getSampleEvents() {
+    return async function(dispatch, getState) {
+      const state = getState();
+      const { events } = state;
+  
+      if (!events.sample.length) {
+        try {
+          const response = await request.get(`${baseUrl}/event?limit=3`);
+          const action = sampleEvents(response.body.rows);
+          dispatch(action);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    };
+  }
+
+
+
+
+
+  

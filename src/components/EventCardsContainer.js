@@ -9,14 +9,14 @@ class EventCardsContainer extends Component {
     this.props.getEvents();
   }
   render() {
-    if (!this.props.events.length) {
+    if (!this.props.events) {
       return <p>Loading...</p>;
     }
     return <EventCardsList events={this.props.events} />;
   }
 }
 function mapStateToProps(state) {
-  return { events: state.events.all };
+  return { events: state.events.all.rows };
 }
 const mapDispatchToProps = { getEvents };
 export default connect(

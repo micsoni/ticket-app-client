@@ -8,12 +8,14 @@ import Navbar from "./components/Navbar";
 import EventCardsContainer from "./components/EventCardsContainer";
 import EventDetailsContainer from "./components/EventDetailsContainer";
 import TicketDetailsContainer from "./components/TicketDetailsContainer";
+import Homepage from "./components/Homepage"
 
 function App() {
   return (
     <Provider store={store}>
       <Navbar />
       <Switch>
+      <Route exact path="/" component={Homepage} />
         <Route path="/login" component={LoginFormContainer} />
         <Route path="/signup" component={SignupFormContainer} />
         <Route exact path="/events" component={EventCardsContainer} />

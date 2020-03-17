@@ -1,4 +1,4 @@
-const initialState = { all: [], current:{} };
+const initialState = { all: {}, current:{}, sample:[] };
 
 export default function(state = initialState, action = {}) {
   switch (action.type) {
@@ -13,6 +13,14 @@ export default function(state = initialState, action = {}) {
         ...state,
         current: action.payload
       };
+    }
+
+    case "SAMPLE_EVENTS": {
+      return {
+        ...state,
+        sample: action.payload
+      };
+
     }
     default:
       return state;
