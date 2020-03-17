@@ -39,7 +39,7 @@ class SignupFormPage extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return { userLoggedIn: state.userLoggedIn };
+  return { userLoggedIn: state.user };
 }
 
 export default connect(mapStateToProps, { signup })(SignupFormPage);

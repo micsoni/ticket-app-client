@@ -2,7 +2,7 @@
 
 // const defaultState = "";
 
-// const initialState = defineState(defaultState)("userLoggedIn");
+// const initialState = defineState(defaultState)("user");
 
 
 const initialState = ""
