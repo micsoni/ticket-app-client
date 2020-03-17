@@ -1,12 +1,8 @@
-body {
-  margin: 40px;
-}
-
 .btn {
   margin: 5px;
 }
 
-.single-event {
+.card {
   font-family: "Dosis", sans-serif;
   margin: 15px;
 }
@@ -15,4 +11,5 @@ p {
   text-align: center;
   padding: 10px;
   font-size: 18px;
+  font-family: "Dosis", sans-serif;
 }

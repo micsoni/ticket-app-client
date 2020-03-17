@@ -33,6 +33,7 @@ function mapStateToProps(state) {
   return { event: state.events.current, tickets: state.events.current.tickets };
 }
 const mapDispatchToProps = { getCurrentEvent };
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

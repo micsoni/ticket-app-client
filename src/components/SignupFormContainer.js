@@ -3,6 +3,7 @@ import SignupForm from "./SignupForm";
 import { connect } from "react-redux";
 import { signup } from "../store/actions/user.js";
 import { Link, Redirect } from "react-router-dom";
+import "./styling/FormsContainer.css"
 
 class SignupFormPage extends React.Component {
   state = { email: "", password: "", username: "" };
