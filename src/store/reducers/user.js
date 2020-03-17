@@ -1,11 +1,8 @@
-//import { defineState } from "redux-localstore";
+import { defineState } from "redux-localstore";
 
-// const defaultState = "";
+const defaultState = "";
 
-// const initialState = defineState(defaultState)("user");
-
-
-const initialState = ""
+const initialState = defineState(defaultState)("user");
 
 export default function(state = initialState, action = {}) {
   switch (action.type) {

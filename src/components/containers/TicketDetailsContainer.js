@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import { getCurrentTicket } from "../store/actions/ticket";
+import { getCurrentTicket } from "../../store/actions/ticket";
 import { connect } from "react-redux";
-import CommentCardsList from "./CommentCardsList";
-import TicketDetails from "./TicketDetails";
+import CommentCardsList from "../presentationals/CommentCardsList";
+import TicketDetails from "../presentationals/TicketDetails";
+import "./styling/TicketDetailsContainer.css"
+
 
 class TicketDetailsContainer extends Component {
   componentDidMount() {

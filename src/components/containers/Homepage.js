@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { getSampleEvents } from "../store/actions/events";
-import EventCardsList from "./EventCardsList";
+import { getSampleEvents } from "../../store/actions/events";
+import EventCardsList from "../presentationals/EventCardsList";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./styling/Homepage.css";

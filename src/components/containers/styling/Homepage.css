@@ -1,6 +1,7 @@
 .row {
   font-family: "Dosis", sans-serif;
   align-content: space-between;
+  margin: 15px;
 }
 
 p {

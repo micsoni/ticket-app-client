@@ -2,13 +2,13 @@ import React from "react";
 import { Provider } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import store from "./store/index";
-import LoginFormContainer from "./components/LoginFormContainer";
-import SignupFormContainer from "./components/SignupFormContainer";
-import Navbar from "./components/Navbar";
-import EventCardsContainer from "./components/EventCardsContainer";
-import EventDetailsContainer from "./components/EventDetailsContainer";
-import TicketDetailsContainer from "./components/TicketDetailsContainer";
-import Homepage from "./components/Homepage"
+import LoginFormContainer from "./components/containers/LoginFormContainer";
+import SignupFormContainer from "./components/containers/SignupFormContainer";
+import Navbar from "./components/containers/Navbar";
+import EventCardsContainer from "./components/containers/EventCardsContainer";
+import EventDetailsContainer from "./components/containers/EventDetailsContainer";
+import TicketDetailsContainer from "./components/containers/TicketDetailsContainer";
+import Homepage from "./components/containers/Homepage"
 
 function App() {
   return (

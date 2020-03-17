@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getCurrentEvent } from "../store/actions/events";
-import TicketList from "./TicketList";
-import EventDetails from "./EventDetails";
+import { getCurrentEvent } from "../../store/actions/events";
+import TicketList from "../presentationals/TicketList";
+import EventDetails from "../presentationals/EventDetails";
 import "./styling/EventDetailsContainer.css";
 
 class EventDetailsContainer extends Component {

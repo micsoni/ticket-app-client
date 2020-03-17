@@ -5,8 +5,8 @@ export default class TicketDetails extends Component {
   render() {
     return (
       <div className="card text-center" key={this.props.ticket.id}>
-        <div className="card-header">
-          Event: {this.props.ticket.event.name}
+        <div className="card-header new">
+          Event - {this.props.ticket.event.name}
         </div>
         <div className="row no-gutters">
           <div className="col-md-4">
@@ -25,7 +25,7 @@ export default class TicketDetails extends Component {
             </div>
           </div>
         </div>
-        <div className="card-footer text-muted">
+        <div className="card-footer new text-muted">
           Comments
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
-import LoginForm from "./LoginForm";
+import LoginForm from "../presentationals/LoginForm";
 import { connect } from "react-redux";
-import { login } from "../store/actions/user.js";
+import { login } from "../../store/actions/user.js";
 import { Link, Redirect } from "react-router-dom";
 import "./styling/FormsContainer.css"
 

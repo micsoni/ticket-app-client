@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import EventCardsList from "./EventCardsList";
+import EventCardsList from "../presentationals/EventCardsList";
 import { connect } from "react-redux";
-import { getEvents } from "../store/actions/events";
+import { getEvents } from "../../store/actions/events";
 import "./styling/EventCardsContainer.css";
 
 class EventCardsContainer extends Component {
