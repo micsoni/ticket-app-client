@@ -15,7 +15,7 @@ class TicketDetailsContainer extends Component {
       if (this.props.ticket.comments.length === 0) {
         return <p>No comments on this ticket yet</p>;
       }
-      return <CommentCardsList comments={this.props.ticket.comments} />;
+       return <CommentCardsList comments={this.props.ticket.comments} />;
     };
     const checkUserLogged = () => {
       if (this.props.user.loginInfo.jwt) {
@@ -27,6 +27,7 @@ class TicketDetailsContainer extends Component {
     if (!this.props.ticket) {
       return <p>Loading...</p>;
     }
+    
     return (
       <div className="single-event">
         <TicketDetails ticket={this.props.ticket} />

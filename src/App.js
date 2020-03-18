@@ -8,15 +8,15 @@ import Navbar from "./components/containers/Navbar";
 import EventCardsContainer from "./components/containers/EventCardsContainer";
 import EventDetailsContainer from "./components/containers/EventDetailsContainer";
 import TicketDetailsContainer from "./components/containers/TicketDetailsContainer";
-import Homepage from "./components/containers/Homepage"
-import ProfilePage from "./components/containers/ProfilePage"
+import Homepage from "./components/containers/Homepage";
+import ProfilePage from "./components/containers/ProfilePage";
 
 function App() {
   return (
     <Provider store={store}>
       <Navbar />
       <Switch>
-      <Route exact path="/" component={Homepage} />
+        <Route exact path="/" component={Homepage} />
         <Route path="/login" component={LoginFormContainer} />
         <Route path="/signup" component={SignupFormContainer} />
         <Route path="/profile" component={ProfilePage} />
