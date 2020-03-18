@@ -1,37 +1,17 @@
 import React, { Component } from "react";
 
-export default class TicketForm extends Component {
+export default class EventForm extends Component {
   render() {
-    const showEdit = () => {
-      if (this.props.showEditMode) {
-        return (
-          <div>
-            <button className="btn btn-info" onClick={this.props.onSubmit}>
-              Save changes
-            </button>
-            <button className="btn btn-dark" onClick={this.props.onDelete}>
-              Delete ticket
-            </button>
-          </div>
-        );
-      }
-      return (
-        <button className="btn btn-info" onClick={this.props.onSubmit}>
-          Create new ticket
-        </button>
-      );
-    };
-
     return (
       <form>
         <div className="form-group col-sm-12">
-          <label className="col-sm-2">Price</label>
+          <label className="col-sm-2">Name</label>
           <input
             className="form-control"
             type="text"
-            name="price"
+            name="name"
             onChange={this.props.onChange}
-            value={this.props.values.price}
+            value={this.props.values.name}
           />
         </div>
         <div className="form-group col-sm-12">
@@ -54,7 +34,29 @@ export default class TicketForm extends Component {
             value={this.props.values.pictureUrl}
           />
         </div>
-       {showEdit()}
+        <div className="form-group col-sm-12">
+          <label className="col-sm-2">Start Date </label>
+          <input
+            className="form-control"
+            type="date"
+            name="startDate"
+            onChange={this.props.onChange}
+            value={this.props.values.startDate}
+          />
+        </div>
+        <div className="form-group col-sm-12">
+          <label className="col-sm-2">End Date </label>
+          <input
+            className="form-control"
+            type="date"
+            name="endDate"
+            onChange={this.props.onChange}
+            value={this.props.values.endDate}
+          />
+        </div>
+        <button className="btn btn-info" onClick={this.props.onSubmit}>
+          Create new event
+        </button>
       </form>
     );
   }

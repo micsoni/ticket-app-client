@@ -3,8 +3,8 @@ import { getCurrentTicket } from "../../store/actions/ticket";
 import { connect } from "react-redux";
 import CommentCardsList from "../presentationals/CommentCardsList";
 import TicketDetails from "../presentationals/TicketDetails";
-import "./styling/TicketDetailsContainer.css"
-
+import "./styling/TicketDetailsContainer.css";
+import CreateCommentFormContainer from "./CreateCommentFormContainer";
 
 class TicketDetailsContainer extends Component {
   componentDidMount() {
@@ -17,6 +17,12 @@ class TicketDetailsContainer extends Component {
       }
       return <CommentCardsList comments={this.props.ticket.comments} />;
     };
+    const checkUserLogged = () => {
+      if (this.props.user.loginInfo.jwt) {
+        return <CreateCommentFormContainer />;
+      }
+      return <p>Login to comment</p>;
+    };
 
     if (!this.props.ticket) {
       return <p>Loading...</p>;
@@ -25,13 +31,14 @@ class TicketDetailsContainer extends Component {
       <div className="single-event">
         <TicketDetails ticket={this.props.ticket} />
         <div>{checkforComments()}</div>
+        <div>{checkUserLogged()}</div>
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  return { ticket: state.ticket };
+  return { ticket: state.ticket, user: state.user };
 }
 const mapDispatchToProps = { getCurrentTicket };
 

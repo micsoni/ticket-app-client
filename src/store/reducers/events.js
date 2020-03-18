@@ -1,4 +1,4 @@
-const initialState = { all: {}, current:{}, sample:[] };
+const initialState = { all: {}, current: {}, sample: [] };
 
 export default function(state = initialState, action = {}) {
   switch (action.type) {
@@ -20,7 +20,15 @@ export default function(state = initialState, action = {}) {
         ...state,
         sample: action.payload
       };
+    }
 
+    case "NEW_EVENT": {
+      const updatedEvents = state.all.rows.concat(action.payload);
+      const completeEvents = { ...state.all, rows: updatedEvents };
+      return {
+        ...state,
+        all: completeEvents
+      };
     }
     default:
       return state;

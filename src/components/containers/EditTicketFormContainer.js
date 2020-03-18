@@ -12,14 +12,7 @@ class EditTicketFormContainer extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-
-    const update = {
-      price: this.state.price,
-      description: this.state.description,
-      pictureUrl: this.state.pictureUrl
-    };
-
-    this.props.updateTicket(this.props.ticket.id, update);
+    this.props.updateTicket(this.props.ticket.id, this.state);
   };
 
   onDelete = event => {
@@ -27,10 +20,9 @@ class EditTicketFormContainer extends Component {
     this.props.deleteTicket(this.props.ticket.id);
   };
   onChange = event => {
-    const { value, name } = event.target;
-    const update = { [name]: value };
-
-    this.setState(update);
+    this.setState({
+      [event.target.name]: event.target.value
+    });
   };
 
   render() {
@@ -41,6 +33,7 @@ class EditTicketFormContainer extends Component {
           onChange={this.onChange}
           values={this.state}
           onDelete={this.onDelete}
+          showEditMode={true}
         />
       </div>
     );

@@ -56,12 +56,49 @@ export function deleteTicket(id) {
     const state = getState();
     const { user } = state;
     try {
-      const response = await request
+      await request
         .delete(`${baseUrl}/ticket/${id}`)
         .set("Authorization", `Bearer ${user.loginInfo.jwt}`);
-      console.log(response)
+
       const action = destroyTicket(id);
       dispatch(action);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+}
+
+export function createTicket(data) {
+  return async function(dispatch, getState) {
+    const state = getState();
+    const { user } = state;
+    const { events } = state;
+    try {
+      await request
+        .post(`${baseUrl}/ticket`)
+        .set("Authorization", `Bearer ${user.loginInfo.jwt}`)
+        .send({
+          ...data,
+          userId: user.loginInfo.id,
+          eventId: events.current.id
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+}
+
+export function createComment(data) {
+  return async function(dispatch, getState) {
+    const state = getState();
+    const { user } = state;
+    const { ticket } = state;
+
+    try {
+      await request
+        .post(`${baseUrl}/ticket/${ticket.id}/comment`)
+        .set("Authorization", `Bearer ${user.loginInfo.jwt}`)
+        .send({ ...data, userId: user.loginInfo.id, ticketId: ticket.id });
     } catch (error) {
       console.error(error);
     }
