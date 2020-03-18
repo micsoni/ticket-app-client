@@ -23,7 +23,11 @@ export default function(state = initialState, action = {}) {
     }
 
     case "NEW_EVENT": {
-      const updatedEvents = state.all.rows.concat(action.payload);
+      const updatedEvents =
+        action.payload.endDate > new Date()
+          ? state.all.rows.concat(action.payload)
+          : state.all.rows;
+
       const completeEvents = { ...state.all, rows: updatedEvents };
       return {
         ...state,
