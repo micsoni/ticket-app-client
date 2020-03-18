@@ -9,6 +9,7 @@ import EventCardsContainer from "./components/containers/EventCardsContainer";
 import EventDetailsContainer from "./components/containers/EventDetailsContainer";
 import TicketDetailsContainer from "./components/containers/TicketDetailsContainer";
 import Homepage from "./components/containers/Homepage"
+import ProfilePage from "./components/containers/ProfilePage"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route exact path="/" component={Homepage} />
         <Route path="/login" component={LoginFormContainer} />
         <Route path="/signup" component={SignupFormContainer} />
+        <Route path="/profile" component={ProfilePage} />
         <Route exact path="/events" component={EventCardsContainer} />
         <Route path="/events/:id" component={EventDetailsContainer} />
         <Route path="/tickets/:id" component={TicketDetailsContainer} />

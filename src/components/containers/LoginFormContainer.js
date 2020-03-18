@@ -37,7 +37,7 @@ class LoginFormContainer extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return { userLoggedIn: state.user };
+  return { userLoggedIn: state.user.loginInfo };
 }
 
 export default connect(mapStateToProps, { login })(LoginFormContainer);

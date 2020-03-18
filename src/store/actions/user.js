@@ -22,6 +22,7 @@ export function login(email, password) {
       dispatch(action);
     } catch (error) {
       console.error(error);
+      //dispatch another action
     }
   };
 }
@@ -53,5 +54,27 @@ export function logout() {
   return {
     type: "LOG_OUT",
     payload: ""
+  };
+}
+
+//get Logged User
+function userTickets(userTickets) {
+  return {
+    type: "LOGGED_USER_TICKETS",
+    payload: userTickets
+  };
+}
+
+export function getUserTickets(userId) {
+  return async dispatch => {
+    try {
+      const response = await request.get(`${baseUrl}/user/${userId}`);
+      const tickets = response.body.tickets;
+
+      const action = userTickets(tickets);
+      dispatch(action);
+    } catch (error) {
+      console.error(error);
+    }
   };
 }

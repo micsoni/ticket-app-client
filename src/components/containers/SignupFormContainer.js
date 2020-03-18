@@ -20,6 +20,7 @@ class SignupFormPage extends React.Component {
       [event.target.name]: event.target.value
     });
   };
+  
   render() {
     if (!this.props.userLoggedIn.jwt) {
       return (
@@ -40,7 +41,7 @@ class SignupFormPage extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return { userLoggedIn: state.user };
+  return { userLoggedIn: state.user.loginInfo };
 }
 
 export default connect(mapStateToProps, { signup })(SignupFormPage);
