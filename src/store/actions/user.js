@@ -1,4 +1,5 @@
 import request from "superagent";
+import {errorMessage} from "./error"
 
 const baseUrl = "http://localhost:4000";
 
@@ -20,8 +21,7 @@ export function login(email, password) {
       const action = makeLogin(response.body);
       dispatch(action);
     } catch (error) {
-      console.error(error);
-      //dispatch another action
+      dispatch(errorMessage(error.response.body.message));
     }
   };
 }
@@ -43,7 +43,7 @@ export function signup(email, password, username) {
       const action = createUser(response.body);
       dispatch(action);
     } catch (error) {
-      console.error(error);
+      dispatch(errorMessage(error.response.body.message));
     }
   };
 }

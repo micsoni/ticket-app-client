@@ -12,11 +12,13 @@ import EventDetailsContainer from "./components/containers/EventDetailsContainer
 import TicketDetailsContainer from "./components/containers/TicketDetailsContainer";
 import Homepage from "./components/containers/Homepage";
 import ProfilePage from "./components/containers/ProfilePage";
+import ErrorAlert from "./components/presentationals/ErrorAlert";
 
 function App() {
   return (
     <Provider store={store}>
       <Navbar />
+      <ErrorAlert />
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route path="/login" component={LoginFormContainer} />
