@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createComment, getCurrentTicket } from "../../store/actions/ticket";
+import { createComment, getCurrentTicket } from "../../store/actions/tickets";
 import CommentForm from "../presentationals/CommentForm";
 
 class CreateCommentFormContainer extends React.Component {
@@ -33,7 +33,7 @@ class CreateCommentFormContainer extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return { ticket: state.ticket };
+  return { ticket: state.tickets.current };
 }
 
 export default connect(mapStateToProps, { createComment, getCurrentTicket })(

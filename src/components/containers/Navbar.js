@@ -44,6 +44,11 @@ export default class Navbar extends Component {
                 All events
               </Link>
             </li>
+            <li className="nav-item active">
+              <Link to="/tickets" className="nav-link">
+                All tickets
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>

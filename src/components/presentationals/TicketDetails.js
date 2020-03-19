@@ -1,11 +1,18 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class TicketDetails extends Component {
   render() {
     return (
       <div className="card text-center" key={this.props.ticket.id}>
         <div className="card-header new">
-          Event - {this.props.ticket.event.name}
+          {this.props.ticket.event.name}
+          <Link
+            to={`/events/${this.props.ticket.eventId}`}
+            className="btn btn-info"
+          >
+            Go to event
+          </Link>
         </div>
         <div className="row no-gutters">
           <div className="col-md-4">

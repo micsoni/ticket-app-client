@@ -104,15 +104,41 @@ export function createComment(data) {
   return async function(dispatch, getState) {
     const state = getState();
     const { user } = state;
-    const { ticket } = state;
+    const { tickets } = state;
 
     try {
       await request
-        .post(`${baseUrl}/ticket/${ticket.id}/comment`)
+        .post(`${baseUrl}/ticket/${tickets.current.id}/comment`)
         .set("Authorization", `Bearer ${user.loginInfo.jwt}`)
-        .send({ ...data, userId: user.loginInfo.id, ticketId: ticket.id });
+        .send({ ...data, userId: user.loginInfo.id, ticketId: tickets.current.id });
     } catch (error) {
       console.error(error);
+    }
+  };
+}
+
+function allTickets(ticketsData) {
+  return {
+    type: "ALL_TICKETS",
+    payload: ticketsData
+  };
+}
+
+export function getTickets(currentPage, offset) {
+  return async function(dispatch, getState) {
+    const state = getState();
+    const { tickets } = state;
+
+    if (!tickets.all.length) {
+      try {
+        const response = await request.get(
+          `${baseUrl}/ticket?limit=9&page=${currentPage}&offset=${offset}`
+        );
+        const action = allTickets(response.body);
+        dispatch(action);
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 }

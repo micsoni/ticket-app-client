@@ -37,7 +37,7 @@ class ProfilePage extends Component {
           Logout
         </button>
         <p>Check all your tickets below</p>
-        {checkforTickets()}
+        <div className="row">{checkforTickets()}</div>
       </div>
     );
   }

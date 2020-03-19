@@ -7,6 +7,7 @@ import LoginFormContainer from "./components/containers/LoginFormContainer";
 import SignupFormContainer from "./components/containers/SignupFormContainer";
 import Navbar from "./components/containers/Navbar";
 import EventCardsContainer from "./components/containers/EventCardsContainer";
+import TicketCardsContainer from "./components/containers/TicketCardsContainer";
 import EventDetailsContainer from "./components/containers/EventDetailsContainer";
 import TicketDetailsContainer from "./components/containers/TicketDetailsContainer";
 import Homepage from "./components/containers/Homepage";
@@ -22,6 +23,7 @@ function App() {
         <Route path="/signup" component={SignupFormContainer} />
         <Route path="/profile" component={ProfilePage} />
         <Route exact path="/events" component={EventCardsContainer} />
+        <Route exact path="/tickets" component={TicketCardsContainer} />
         <Route path="/events/:id" component={EventDetailsContainer} />
         <Route path="/tickets/:id" component={TicketDetailsContainer} />
       </Switch>

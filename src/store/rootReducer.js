@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import user from "./reducers/user";
 import events from "./reducers/events";
-import ticket from "./reducers/ticket";
+import tickets from "./reducers/tickets";
 
 export default combineReducers({
   user,
   events,
-  ticket
+  tickets
 });

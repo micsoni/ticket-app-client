@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getCurrentTicket } from "../../store/actions/ticket";
+import { getCurrentTicket } from "../../store/actions/tickets";
 import CommentCardsList from "../presentationals/CommentCardsList";
 import TicketDetails from "../presentationals/TicketDetails";
 import CreateCommentFormContainer from "./CreateCommentFormContainer";
@@ -39,7 +39,7 @@ class TicketDetailsContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  return { ticket: state.ticket, user: state.user };
+  return { ticket: state.tickets.current, user: state.user };
 }
 const mapDispatchToProps = { getCurrentTicket };
 

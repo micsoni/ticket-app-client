@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createTicket } from "../../store/actions/ticket";
+import { createTicket } from "../../store/actions/tickets";
 import {getCurrentEvent} from "../../store/actions/events"
 import TicketForm from "../presentationals/TicketForm";
 

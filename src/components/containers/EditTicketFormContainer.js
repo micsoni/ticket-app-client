@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updateTicket, deleteTicket } from "../../store/actions/ticket";
+import { updateTicket, deleteTicket } from "../../store/actions/tickets";
 import TicketForm from "../presentationals/TicketForm";
 
 class EditTicketFormContainer extends Component {
