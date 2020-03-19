@@ -22,12 +22,16 @@ class Homepage extends Component {
           ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
           Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
         </p>
-        <div className="row">
-          <p>Check some of our events</p>
-          <EventCardsList events={this.props.events} />{" "}
-          <Link to={`/events`} className="btn btn-info btn-block">
-            See all
-          </Link>
+        <div className="card text-center">
+          <div className="card-header">Check some of our events</div>
+          <div className="row">
+            <EventCardsList events={this.props.events} />
+          </div>
+          <div className="card-footer">
+            <Link to={`/events`} className="btn btn-info btn-block">
+              See all
+            </Link>
+          </div>
         </div>
       </div>
     );

@@ -54,7 +54,7 @@ export default class TicketForm extends Component {
             value={this.props.values.pictureUrl}
           />
         </div>
-       {showEdit()}
+        {showEdit()}
       </form>
     );
   }

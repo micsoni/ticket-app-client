@@ -2,6 +2,7 @@ import request from "superagent";
 
 const baseUrl = "http://localhost:4000";
 
+// action to get current ticket for the ticket details page
 function currentTicket(ticketData) {
   return {
     type: "CURRENT_TICKET",
@@ -20,6 +21,7 @@ export function getCurrentTicket(id) {
   };
 }
 
+// action to update ticket
 function changeTicket(newTicket) {
   return {
     type: "CHANGE_TICKET",
@@ -46,21 +48,26 @@ export function updateTicket(id, update) {
   };
 }
 
-export const destroyTicket = ticketId => ({
-  type: "TICKET_DELETE_SUCCESS",
-  payload: ticketId
-});
+// action to delete ticket
+function destroyTicket(ticketId) {
+  return {
+    type: "TICKET_DELETE_SUCCESS",
+    payload: ticketId
+  };
+}
 
 export function deleteTicket(id) {
   return async function(dispatch, getState) {
     const state = getState();
     const { user } = state;
+
     try {
       await request
         .delete(`${baseUrl}/ticket/${id}`)
         .set("Authorization", `Bearer ${user.loginInfo.jwt}`);
 
       const action = destroyTicket(id);
+
       dispatch(action);
     } catch (error) {
       console.error(error);
@@ -68,11 +75,14 @@ export function deleteTicket(id) {
   };
 }
 
+// thunk to create ticket **it doesn't send a action to the store, in the component a new get request is done
+// (due to sequelize relations i was missing and to recalculate risk)
 export function createTicket(data) {
-  return async function(dispatch, getState) {
+  return async function(getState) {
     const state = getState();
     const { user } = state;
     const { events } = state;
+
     try {
       await request
         .post(`${baseUrl}/ticket`)
@@ -88,8 +98,10 @@ export function createTicket(data) {
   };
 }
 
+// thunk to create comment **it doesn't send a action to the store, in the component a new get request is done
+// (due to sequelize relations i was missing and to recalculate risk)
 export function createComment(data) {
-  return async function(dispatch, getState) {
+  return async function(getState) {
     const state = getState();
     const { user } = state;
     const { ticket } = state;

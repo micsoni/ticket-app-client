@@ -3,10 +3,15 @@ import SignupForm from "../presentationals/SignupForm";
 import { connect } from "react-redux";
 import { signup } from "../../store/actions/user.js";
 import { Link, Redirect } from "react-router-dom";
-import "./styling/FormsContainer.css"
+import "./styling/FormsContainer.css";
 
 class SignupFormPage extends React.Component {
-  state = { email: "", password: "", username: "" };
+  state = {
+    email: "",
+    password: "",
+    username: ""
+  };
+
   onSubmit = event => {
     event.preventDefault();
     this.props.signup(
@@ -20,7 +25,7 @@ class SignupFormPage extends React.Component {
       [event.target.name]: event.target.value
     });
   };
-  
+
   render() {
     if (!this.props.userLoggedIn.jwt) {
       return (

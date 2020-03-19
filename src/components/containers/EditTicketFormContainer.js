@@ -7,7 +7,7 @@ class EditTicketFormContainer extends Component {
   state = {
     price: this.props.ticket.price,
     description: this.props.ticket.description,
-    pictureUrl:this.props.ticket.pictureUrl
+    pictureUrl: this.props.ticket.pictureUrl
   };
 
   onSubmit = event => {

@@ -5,15 +5,17 @@ export default class TicketList extends Component {
   render() {
     const displayTickets = this.props.tickets.map(ticket => {
       function showTicketRisk() {
-        if (ticket.risk < 15) {
+        if (ticket.risk < 10) {
           return "table-success";
         }
-        if (ticket.risk >= 15 && ticket.risk < 30) {
+        if (ticket.risk >= 10 && ticket.risk < 40) {
           return "table-warning";
         }
         return "table-danger";
       }
+
       const bgColor = showTicketRisk();
+
       return (
         <tr className={bgColor} key={ticket.id}>
           <th scope="row">{ticket.user.username}</th>

@@ -5,7 +5,8 @@ import LoginFormContainer from "./LoginFormContainer"
 import UserTicketCardsList from "../presentationals/UserTicketCardsList"
 
 class ProfilePage extends Component {
-  componentDidMount() {
+
+  componentDidUpdate() {
     if (this.props.userLoggedIn.jwt) {
       this.props.getUserTickets(this.props.userLoggedIn.id);
     }

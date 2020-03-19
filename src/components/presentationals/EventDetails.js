@@ -5,7 +5,7 @@ export default class EventDetails extends Component {
     return (
       <div className="card text-center">
         <div className="card-header">
-          Start Date{" "}{this.props.event.startDate} | End Date{" "}
+          Start Date {this.props.event.startDate} | End Date{" "}
           {this.props.event.endDate}
         </div>
         <div className="row no-gutters">

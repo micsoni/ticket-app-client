@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { getCurrentEvent } from "../../store/actions/events";
 import TicketList from "../presentationals/TicketList";
 import EventDetails from "../presentationals/EventDetails";
+import CreateTicketFormContainer from "./CreateTicketFormContainer";
 import "./styling/EventDetailsContainer.css";
-import CreateTicketFormContainer from "./CreateTicketFormContainer"
 
 class EventDetailsContainer extends Component {
   componentDidMount() {
@@ -20,10 +20,10 @@ class EventDetailsContainer extends Component {
 
     const checkUserLogged = () => {
       if (this.props.user.loginInfo.jwt) {
-        return <CreateTicketFormContainer/>;
+        return <CreateTicketFormContainer />;
       }
       return <p>Login to create tickets</p>;
-    }
+    };
 
     if (!this.props.tickets) {
       return <p>Loading...</p>;
@@ -39,7 +39,11 @@ class EventDetailsContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  return { event: state.events.current, tickets: state.events.current.tickets, user: state.user };
+  return {
+    event: state.events.current,
+    tickets: state.events.current.tickets,
+    user: state.user
+  };
 }
 const mapDispatchToProps = { getCurrentEvent };
 

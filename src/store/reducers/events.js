@@ -21,7 +21,7 @@ export default function(state = initialState, action = {}) {
         sample: action.payload
       };
     }
-
+    // checks if it is past event, if so, doesn't show
     case "NEW_EVENT": {
       const updatedEvents =
         action.payload.endDate > new Date()

@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createTicket } from "../../store/actions/ticket";
-import TicketForm from "../presentationals/TicketForm";
 import {getCurrentEvent} from "../../store/actions/events"
+import TicketForm from "../presentationals/TicketForm";
 
 class CreateTicketFormContainer extends React.Component {
   state = {

@@ -1,9 +1,9 @@
 import React from "react";
-import LoginForm from "../presentationals/LoginForm";
 import { connect } from "react-redux";
-import { login } from "../../store/actions/user.js";
 import { Link, Redirect } from "react-router-dom";
-import "./styling/FormsContainer.css"
+import { login } from "../../store/actions/user.js";
+import LoginForm from "../presentationals/LoginForm";
+import "./styling/FormsContainer.css";
 
 class LoginFormContainer extends React.Component {
   state = { email: "", password: "" };

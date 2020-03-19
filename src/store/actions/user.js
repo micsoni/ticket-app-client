@@ -18,7 +18,6 @@ export function login(email, password) {
         .send({ email, password });
 
       const action = makeLogin(response.body);
-
       dispatch(action);
     } catch (error) {
       console.error(error);
@@ -57,7 +56,7 @@ export function logout() {
   };
 }
 
-//get Logged User
+//get Logged User tickets
 function userTickets(userTickets) {
   return {
     type: "LOGGED_USER_TICKETS",
@@ -66,7 +65,7 @@ function userTickets(userTickets) {
 }
 
 export function getUserTickets(userId) {
-  return async dispatch => {
+  return async function(dispatch) {
     try {
       const response = await request.get(`${baseUrl}/user/${userId}`);
       const tickets = response.body.tickets;
