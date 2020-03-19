@@ -1,4 +1,5 @@
 import request from "superagent";
+import { errorMessage } from "./error";
 
 const baseUrl = "http://localhost:4000";
 
@@ -44,7 +45,7 @@ export function getCurrentEvent(id) {
       const action = currentEvent(response.body);
       dispatch(action);
     } catch (error) {
-      console.error(error);
+      dispatch(errorMessage(error.response.body.message));
     }
   };
 }
@@ -96,7 +97,7 @@ export function createEvent(data) {
       const action = newEvent(response.body);
       dispatch(action);
     } catch (error) {
-      console.error(error);
+      dispatch(errorMessage(error.response.body.message));
     }
   };
 }

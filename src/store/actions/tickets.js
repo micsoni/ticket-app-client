@@ -1,4 +1,5 @@
 import request from "superagent";
+import {errorMessage} from "./error"
 
 const baseUrl = "http://localhost:4000";
 
@@ -16,7 +17,7 @@ export function getCurrentTicket(id) {
       const action = currentTicket(response.body);
       dispatch(action);
     } catch (error) {
-      console.error(error);
+      dispatch(errorMessage(error.response.body.message));
     }
   };
 }
@@ -43,7 +44,7 @@ export function updateTicket(id, update) {
 
       dispatch(action);
     } catch (error) {
-      console.error(error);
+      dispatch(errorMessage(error.response.body.message));
     }
   };
 }
@@ -70,7 +71,7 @@ export function deleteTicket(id) {
 
       dispatch(action);
     } catch (error) {
-      console.error(error);
+      dispatch(errorMessage(error.response.body.message));
     }
   };
 }
@@ -93,7 +94,7 @@ export function createTicket(data) {
           eventId: events.current.id
         });
     } catch (error) {
-      console.error(error);
+      dispatch(errorMessage(error.response.body.message));
     }
   };
 }
