@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { getUserTickets, logout } from "../../store/actions/user";
 import { connect } from "react-redux";
-import LoginFormContainer from "./LoginFormContainer"
-import UserTicketCardsList from "../presentationals/UserTicketCardsList"
+import { Redirect } from "react-router-dom";
+import UserTicketCardsList from "../presentationals/UserTicketCardsList";
 
 class ProfilePage extends Component {
-
-  componentDidUpdate() {
+  componentDidMount() {
     if (this.props.userLoggedIn.jwt) {
       this.props.getUserTickets(this.props.userLoggedIn.id);
     }
@@ -21,11 +20,11 @@ class ProfilePage extends Component {
       if (this.props.tickets.length === 0) {
         return <p>You haven't added any tickets yet</p>;
       }
-      return <UserTicketCardsList tickets={this.props.tickets}/>;
+      return <UserTicketCardsList tickets={this.props.tickets} />;
     };
 
     if (!this.props.userLoggedIn.jwt) {
-      return <LoginFormContainer/>;
+      return <Redirect to="/login" />;
     }
     if (!this.props.tickets) {
       return <p>Loading...</p>;
@@ -33,11 +32,12 @@ class ProfilePage extends Component {
     return (
       <div>
         <p>Welcome {this.props.userLoggedIn.name}</p>
-        <p>Check all your tickets below</p>
         <button className="btn btn-info" onClick={this.onLogout}>
+          {" "}
           Logout
         </button>
-        <div className="row">{checkforTickets()}</div>
+        <p>Check all your tickets below</p>
+        {checkforTickets()}
       </div>
     );
   }

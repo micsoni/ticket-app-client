@@ -4,7 +4,7 @@ export default class EventForm extends Component {
   render() {
     return (
       <form>
-        <div className="form-group col-sm-12">
+        <div className="form-group col-sm-6">
           <label className="col-sm-2">Name</label>
           <input
             className="form-control"
@@ -14,7 +14,7 @@ export default class EventForm extends Component {
             value={this.props.values.name}
           />
         </div>
-        <div className="form-group col-sm-12">
+        <div className="form-group col-sm-6">
           <label className="col-sm-2">Description</label>
           <input
             className="form-control"
@@ -24,7 +24,7 @@ export default class EventForm extends Component {
             value={this.props.values.description}
           />
         </div>
-        <div className="form-group col-sm-12">
+        <div className="form-group col-sm-6">
           <label className="col-sm-2">Image Url </label>
           <input
             className="form-control"
@@ -34,7 +34,7 @@ export default class EventForm extends Component {
             value={this.props.values.pictureUrl}
           />
         </div>
-        <div className="form-group col-sm-12">
+        <div className="form-group col-sm-6">
           <label className="col-sm-2">Start Date </label>
           <input
             className="form-control"
@@ -44,7 +44,7 @@ export default class EventForm extends Component {
             value={this.props.values.startDate}
           />
         </div>
-        <div className="form-group col-sm-12">
+        <div className="form-group col-sm-6">
           <label className="col-sm-2">End Date </label>
           <input
             className="form-control"

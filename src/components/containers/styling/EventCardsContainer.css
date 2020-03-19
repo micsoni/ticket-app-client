@@ -3,6 +3,19 @@
 }
 
 .event-list {
-  font-family: 'Dosis', sans-serif;
+  font-family: "Dosis", sans-serif;
   margin: 15px;
+}
+
+.create {
+  margin: 20px;
+}
+
+.create button {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.form {
+  margin: 20px;
 }

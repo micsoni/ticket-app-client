@@ -18,7 +18,10 @@ export default class UserTicketCard extends Component {
           <Link to={`/events/${ticket.eventId}`} className="btn btn-info">
             See Event
           </Link>
-          <button className="btn btn-info" onClick={this.props.toggleForm}>
+          <Link to={`/tickets/${ticket.id}`} className="btn btn-info">
+            See Details
+          </Link>
+          <button className="btn btn-dark" onClick={this.props.toggleForm}>
             Edit mode
           </button>
         </div>

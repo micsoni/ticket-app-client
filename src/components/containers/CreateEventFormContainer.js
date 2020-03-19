@@ -18,13 +18,11 @@ class CreateEventFormContainer extends React.Component {
   };
   onSubmit = event => {
     event.preventDefault();
-    this.props
-      .createEvent(this.state)    
+    this.props.createEvent(this.state);
   };
   render() {
     return (
-      <div>
-        <p>Create a new event</p>
+      <div className="form">
         <EventForm
           onSubmit={this.onSubmit}
           onChange={this.onChange}

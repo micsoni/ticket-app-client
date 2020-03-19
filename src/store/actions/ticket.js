@@ -78,7 +78,7 @@ export function deleteTicket(id) {
 // thunk to create ticket **it doesn't send a action to the store, in the component a new get request is done
 // (due to sequelize relations i was missing and to recalculate risk)
 export function createTicket(data) {
-  return async function(getState) {
+  return async function(dispatch, getState) {
     const state = getState();
     const { user } = state;
     const { events } = state;
@@ -101,7 +101,7 @@ export function createTicket(data) {
 // thunk to create comment **it doesn't send a action to the store, in the component a new get request is done
 // (due to sequelize relations i was missing and to recalculate risk)
 export function createComment(data) {
-  return async function(getState) {
+  return async function(dispatch, getState) {
     const state = getState();
     const { user } = state;
     const { ticket } = state;
