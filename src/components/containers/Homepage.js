@@ -23,9 +23,6 @@ class Homepage extends Component {
       return <EventCardsList events={this.props.events} />;
     };
 
-    if (this.props.events == null || this.props.events.length === 0) {
-      return <p>no events yet</p>;
-    }
     return (
       <div>
         <p>
