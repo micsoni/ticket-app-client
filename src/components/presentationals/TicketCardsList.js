@@ -17,7 +17,7 @@ export default class TicketCardsList extends Component {
       const bgColor = showTicketRisk();
 
       return (
-        <div className="col-lg-2 col-md-3 col-6" key={ticket.id}>
+        <div className="col-lg-2 col-md-4 col-12" key={ticket.id}>
           <div className="card ticket-list">
             <img src={ticket.pictureUrl} className="card-img-top" alt=" " />
             <div className="card-body">

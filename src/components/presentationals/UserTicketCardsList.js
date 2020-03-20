@@ -20,7 +20,7 @@ export default class UserTicketCardsList extends Component {
       const showForm = this.state.ticketsInEdit.includes(ticket.id);
 
       return (
-        <div className="col-lg-3 col-md-4 col-6" key={ticket.id}>
+        <div className="col-lg-3 col-md-6 col-12" key={ticket.id}>
           <UserTicketCard
             ticket={ticket}
             toggleForm={() => this.toggleForm(ticket)}

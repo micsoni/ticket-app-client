@@ -5,7 +5,7 @@ export default class EventCardsList extends Component {
   render() {
     const displayEvents = this.props.events.map(event => {
       return (
-        <div className="col-lg-3 col-md-4 col-6" key={event.id}>
+        <div className="col-lg-3 col-md-4 col-12" key={event.id}>
           <div className="card event-list">
             <img src={event.pictureUrl} className="card-img-top" alt=" " />
             <div className="card-body">
