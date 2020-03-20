@@ -16,6 +16,13 @@ class Homepage extends Component {
     if (this.state.loading) {
       return <p>Loading...</p>;
     }
+    const checkForEvents = () => {
+      if (this.props.events == null || this.props.events.length === 0) {
+        return <p>No events yet</p>;
+      }
+      return <EventCardsList events={this.props.events} />;
+    };
+
     if (this.props.events == null || this.props.events.length === 0) {
       return <p>no events yet</p>;
     }
@@ -30,9 +37,7 @@ class Homepage extends Component {
         </p>
         <div className="card text-center">
           <div className="card-header">Check some of our events</div>
-          <div className="row">
-            <EventCardsList events={this.props.events} />
-          </div>
+          <div className="row">{checkForEvents()}</div>
           <div className="card-footer">
             <Link to={`/events`} className="btn btn-info btn-block">
               See all
