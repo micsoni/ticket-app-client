@@ -28,7 +28,7 @@ class EventCardsContainer extends Component {
   nextOrPrevPage = type => {
     const newPage =
       type === "next" ? this.state.currentPage + 1 : this.state.currentPage - 1;
-    const offset = type === "next" ? (newPage - 1) * 9 : (newPage - 1) * 9;
+    const offset = (newPage - 1) * 9;
 
     this.setState({ ...this.state, currentPage: newPage, offset: offset });
     this.props.getEvents(newPage, offset);
