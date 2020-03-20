@@ -28,7 +28,7 @@ class TicketDetailsContainer extends Component {
       return <p>Loading...</p>;
     }
 
-    return (
+     return (
       <div className="single-event">
         <TicketDetails ticket={this.props.ticket} />
         <div>{checkforComments()}</div>

@@ -33,6 +33,9 @@ class TicketCarsContainer extends Component {
     if (!this.props.tickets) {
       return <p>Loading...</p>;
     }
+    if (this.props.tickets == null) {
+      return <p>no tickets yet</p>;
+    }
     return (
       <div className="space">
         <Pagination

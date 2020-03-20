@@ -52,6 +52,10 @@ class EventCardsContainer extends Component {
     if (!this.props.events) {
       return <p>Loading...</p>;
     }
+    if (this.props.events == null){
+      return <p>no events yet</p>
+    }
+
     return (
       <div>
         {checkUserLogged()}
