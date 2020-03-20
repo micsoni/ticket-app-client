@@ -10,11 +10,14 @@ class EventCardsContainer extends Component {
   state = {
     createEventMode: false,
     currentPage: 1,
-    offset: 0
+    offset: 0,
+    loading: true
   };
 
   componentDidMount() {
-    this.props.getEvents(this.state.currentPage, this.state.offset);
+    this.props
+      .getEvents(this.state.currentPage, this.state.offset)
+      .then(this.setState({ ...this.state, loading: false }));
   }
 
   getPage = (page, offset) => {
@@ -22,16 +25,20 @@ class EventCardsContainer extends Component {
     this.props.getEvents(page, offset);
   };
 
-  nextOrPrevPage = (type) => {
-    const newPage = (type === "next") ? this.state.currentPage + 1 : this.state.currentPage - 1 
-    const offset = (type === "next") ? (newPage - 1) * 9 : (newPage - 1) * 9;
-  
+  nextOrPrevPage = type => {
+    const newPage =
+      type === "next" ? this.state.currentPage + 1 : this.state.currentPage - 1;
+    const offset = type === "next" ? (newPage - 1) * 9 : (newPage - 1) * 9;
+
     this.setState({ ...this.state, currentPage: newPage, offset: offset });
     this.props.getEvents(newPage, offset);
   };
 
   toggleForm = () => {
-    this.setState({ createEventMode: !this.state.createEventMode });
+    this.setState({
+      ...this.state,
+      createEventMode: !this.state.createEventMode
+    });
   };
 
   render() {
@@ -49,17 +56,17 @@ class EventCardsContainer extends Component {
       return <p>Login to create events</p>;
     };
 
-    if (!this.props.events) {
+    if (this.state.loading) {
       return <p>Loading...</p>;
     }
-    if (this.props.events == null){
-      return <p>no events yet</p>
+    if (this.props.events == null || this.props.events.length === 0) {
+      return <p>no events yet</p>;
     }
 
     return (
       <div>
         {checkUserLogged()}
-       
+
         <Pagination
           pagination={this.props.pagination}
           currentPage={this.state.currentPage}
@@ -67,7 +74,7 @@ class EventCardsContainer extends Component {
           nextOrPrevPage={this.nextOrPrevPage}
           pageCount={this.props.pageCount}
         />
-         <EventCardsList events={this.props.events} />
+        <EventCardsList events={this.props.events} />
       </div>
     );
   }

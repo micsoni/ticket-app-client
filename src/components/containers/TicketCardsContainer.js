@@ -8,11 +8,14 @@ import "./styling/TicketCardsContainer.css";
 class TicketCarsContainer extends Component {
   state = {
     currentPage: 1,
-    offset: 0
+    offset: 0,
+    loading: true
   };
 
   componentDidMount() {
-    this.props.getTickets(this.state.currentPage, this.state.offset);
+    this.props
+      .getTickets(this.state.currentPage, this.state.offset)
+      .then(this.setState({ ...this.state, loading: false }));
   }
 
   getPage = (page, offset) => {
@@ -30,10 +33,10 @@ class TicketCarsContainer extends Component {
   };
 
   render() {
-    if (!this.props.tickets) {
+    if (this.state.loading) {
       return <p>Loading...</p>;
     }
-    if (this.props.tickets == null) {
+    if (this.props.tickets == null || this.props.tickets.length === 0) {
       return <p>no tickets yet</p>;
     }
     return (

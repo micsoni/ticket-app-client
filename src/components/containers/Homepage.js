@@ -6,12 +6,18 @@ import { Link } from "react-router-dom";
 import "./styling/Homepage.css";
 
 class Homepage extends Component {
+  state = {
+    loading: true
+  };
   componentDidMount() {
-    this.props.getSampleEvents();
+    this.props.getSampleEvents().then(this.setState({ loading: false }));
   }
   render() {
-    if (!this.props.events.length) {
+    if (this.state.loading) {
       return <p>Loading...</p>;
+    }
+    if (this.props.events == null || this.props.events.length === 0) {
+      return <p>no events yet</p>;
     }
     return (
       <div>
